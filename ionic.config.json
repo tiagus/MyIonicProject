@@ -1,7 +1,14 @@
 {
-  "name": "MyIonicProject",
+  "name": "New Ionic App",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://ideiasbrilhantes.local/"
+    }
+  ]
 }

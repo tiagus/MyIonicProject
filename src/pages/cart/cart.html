@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Your Cart</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card [hidden]="!showEmptyCartMessage" style="text-align: center;">
+    <ion-grid>
+      <ion-row >
+        <ion-col>There are no products in your cart!</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card *ngFor="let item of cartItems; let i = index">
+    <ion-item color="light">
+
+      <ion-thumbnail item-left>
+        <img [src]="item.product.images[0].src" style="width: 60px !important; height: 60px !important;" />
+      </ion-thumbnail>
+      <h2><b> {{ item.product.name.split(' ')[0] }} </b></h2>
+      <p>
+        <span> {{ item.qty }} • </span>
+        <span [innerHTML]="item.product.price_html"></span>
+      </p>
+
+    </ion-item>
+
+    <ion-item class="compact">
+      <ion-row no-padding>
+        <ion-col col-8>
+          <button ion-button icon-only clear (click)="changeQty(item, i, -1)">
+            <ion-icon name="remove-circle"></ion-icon>
+          </button>
+
+          <button ion-button clear>
+            {{ item.qty }}
+          </button>
+
+          <button ion-button icon-only clear (click)="changeQty(item, i, +1)">
+            <ion-icon name="add-circle"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-4 style="text-align: right;">
+          <button ion-button small outline (click)="removeFromCart(item, i)" style="width: 64px;">
+            Remove
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-grid>
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2>
+
+          </ion-col>
+          <ion-col col-4>
+            <b>TOTAL</b>
+          </ion-col>
+          <ion-col col-3>
+
+          </ion-col>
+          <ion-col col-3 style="text-align: right;">
+            <b> {{ total.toFixed(2) }} €</b>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-grid>
+
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button outline block (click)="closeModal()">
+            Back
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="checkout()">
+            Checkout
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+
+
+
+
+

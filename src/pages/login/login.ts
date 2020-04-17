@@ -28,7 +28,7 @@ export class Login {
 
     login(){
 
-      this.http.get("https://ideiasbrilhantes.local/api/auth/generate_auth_cookie/?username=" + this.username + "&password=" + this.password)
+      this.http.get("https://dev.tiagodossantos.com/headlesswoo/api/auth/generate_auth_cookie/?username=" + this.username + "&password=" + this.password)
       .subscribe( (res) => {
         console.log(res);
 

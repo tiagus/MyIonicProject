@@ -1,5 +1,11 @@
 {
   "name": "New Ionic App",
   "integrations": {},
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://dev.tiagodossantos.com/headlesswoo/api"
+    }
+  ]
 }
